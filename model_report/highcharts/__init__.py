@@ -74,7 +74,7 @@ class HighchartRender(object):
                     serie_values.append(value)
 
             value = serie_operation(serie_values)
-            grouper = unicodeToHTMLEntities(grouper)
+            grouper = unicodeToHTMLEntities(unicode(grouper))
             serie_data.append([grouper, round(value, 2)])
         data = self.model.serie_obj.create(**{
             'name': grouper,
@@ -132,7 +132,7 @@ class HighchartRender(object):
                     serie_values.append(value)
 
             value = serie_operation(serie_values)
-            grouper = unicodeToHTMLEntities(grouper)
+            grouper = unicodeToHTMLEntities(unicode(grouper))
             serie_data.append(round(value, 2))
             xAxis_categories.append(grouper)
             yAxis_min = float(yAxis_min) if value > yAxis_min else value
